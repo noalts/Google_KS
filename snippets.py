@@ -79,7 +79,7 @@ for i in range(1, int(input()) + 1):
         print(j,sep='',end='')
     print()
 
-#find lost
+#find missing
 c = []
 sc = []
 res = []
@@ -385,3 +385,79 @@ while element != 0:
         second_max = element
     element = int(input())
 print(second_max)
+
+#count max numbers with list
+n = -1
+m = 0
+l = []
+c = 0
+while n != 0:
+    n = int(input())
+    l.append(n)
+m = max(l)
+for i in l:
+    if i == m:
+        c += 1
+print(c)
+
+#or no list
+maximum = 0
+num_maximal = 0
+element = -1
+while element != 0:
+    element = int(input())
+    if element > maximum:
+        maximum, num_maximal = element, 1
+    elif element == maximum:
+        num_maximal += 1        
+print(num_maximal)
+
+#Fibunacci sequence with list:
+def fibs(n):                                                                                                 
+    fibs = [0, 1, 1]                                                                                           
+    for f in range(2, n):                                                                                      
+        fibs.append(fibs[-1] + fibs[-2])                                                                         
+    return fibs[n]
+
+#or for loop:
+n = int(input())
+if n == 0:
+    print(0)
+else:
+    a, b = 0, 1
+    for i in range(2, n + 1):
+        a, b = b, a + b
+    print(b)
+
+# is input Fibunacci-Number? without list
+if n == 0:
+    print(0)
+else:
+    a, b = 0, 1
+    q = 1
+    while b <= n:
+        if b == n:
+            print(q)
+            break
+        a, b = b, a + b
+        q += 1
+    else:
+        print(-1)
+
+#or with list        
+q = int(input())
+n = 45
+l = [0, 1]
+if n == 0:
+    print(0)
+else:
+    a, b = 0, 1
+    for i in range(2, n + 1):
+        a, b = b, a + b
+        l.append(b)
+if q in l:
+    print(l.index(q))
+else:
+    print(-1)
+
+
