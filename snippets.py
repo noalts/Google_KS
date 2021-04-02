@@ -18,7 +18,7 @@ else:
 nums = []
 for i in range(10):
     nums.append(int(input()))
-print(sum(nums))
+print(nums.sum)
 
 #or
 res = 0
