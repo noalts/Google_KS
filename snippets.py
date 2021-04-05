@@ -460,4 +460,37 @@ if q in l:
 else:
     print(-1)
 
+#find max of consecutive equal elements
+prev = -1
+curr_rep_len = 0
+max_rep_len = 0
+element = int(input())
+while element != 0:
+    if prev == element:
+        curr_rep_len += 1
+    else:
+        prev = element
+        max_rep_len = max(max_rep_len, curr_rep_len)
+        curr_rep_len = 1
+    element = int(input())
+max_rep_len = max(max_rep_len, curr_rep_len)
+print(max_rep_len)
+
+#or more readable:
+k = 0
+q = 1
+r = 1
+t = 1
+n = int(input())
+while n != 0:
+    k = n
+    n = int(input())
+    if k == n:
+        q += 1
+    elif k != n:
+        q = 1    
+    t = q
+    if t > r:
+        r = t
+print(r)
 
