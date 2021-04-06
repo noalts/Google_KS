@@ -494,3 +494,44 @@ while n != 0:
         r = t
 print(r)
 
+# print every 2nd index from list:
+a = [int(s) for s in input().split()]
+for i in range(len(a)):
+    if i % 2 == 0:
+        print(a[i])
+
+#or:
+a = input().split()
+for i in range(0, len(a), 2):
+    print(a[i])
+
+#print even element of list:
+a = [int(i) for i in input().split()]
+for j in a:
+    if j % 2 == 0:
+        print(j)
+
+# greater than previous in list:
+a = [int(i) for i in input().split()]
+for i in range(1, len(a)):
+    if a[i] > a[i - 1]:
+        print(a[i])
+
+# same sign of neighbour
+a = [int(i) for i in input().split()]
+for i in range(len(a) - 1):
+    if a[i] > 0 and a[i + 1] > 0:
+        print(a[i],' ',a[i + 1])
+        break
+    elif a[i] < 0 and a[i + 1] < 0:
+        print(a[i],' ',a[i + 1])
+        break
+    else:
+        pass
+
+#or
+a = [int(i) for i in input().split()]
+for i in range(1, len(a)):
+    if a[i - 1] * a[i] > 0:
+        print(a[i - 1], a[i])
+        break
