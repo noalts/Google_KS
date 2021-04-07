@@ -535,3 +535,53 @@ for i in range(1, len(a)):
     if a[i - 1] * a[i] > 0:
         print(a[i - 1], a[i])
         break
+
+#bigger than both neighbours
+a = [int(i) for i in input().split()]
+c = 0
+for i in range(1, len(a) - 1):
+    if a[i - 1] < a[i] > a[i + 1]:
+        c += 1
+print(c)
+
+#list max and index of max
+a = [int(i) for i in input().split()]
+c = 0
+m = max(a)
+for i in range(0, len(a)):
+    if i == max:
+        break
+print(m,' ',a.index(m))
+
+#count distinct numbers in list
+a = [int(i) for i in input().split()]
+c = 1
+for i in range(0, len(a) - 1):
+    if a[i] != a[i + 1]:
+        c += 1
+print(c)
+
+#swap elements in list(print without brackets)
+a = [int(i) for i in input().split()]
+c = ''
+for i in range(0, len(a) - 1, 2):
+    c = a[i]
+    a[i] = a[i + 1]
+    a[i + 1] = c
+    i += 2
+print(*a)
+
+#or
+a = [int(i) for i in input().split()]
+for i in range(1, len(a), 2):
+    a[i - 1], a[i] = a[i], a[i - 1]
+print(' '.join([str(i) for i in a]))
+
+#swap elements(max, min) of list
+a = [int(i) for i in input().split()]
+x = a.index(max(a))
+y = a.index(min(a))
+a[x], a[y] = a[y], a[x]
+print(*a)
+
+#
