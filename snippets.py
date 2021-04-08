@@ -584,4 +584,40 @@ y = a.index(min(a))
 a[x], a[y] = a[y], a[x]
 print(*a)
 
-#
+#number of equal pairs counted once
+a = [int(s) for s in input().split()]
+counter = 0
+for i in range(len(a)):
+    for j in range(i + 1, len(a)):
+        if a[i] == a[j]:
+            counter += 1
+print(counter)
+
+#number of equal pairs all combinations counted
+a = [int(i) for i in input().split()]
+b = set(a)
+c = []
+d = []
+for i in b:
+	c.append(a.count(i))
+for i in c:
+	if i > 1:
+		d.append(i * 2)
+print(sum(d))
+
+#print every unique element in order of appearance
+a = [int(s) for s in input().split()]
+b = []
+for i in range(len(a)):
+    if a.count(a[i]) == 1:
+        b.append(a[i])
+print(*b)
+
+#or
+a = [int(s) for s in input().split()]
+for i in range(len(a)):
+    for j in range(len(a)):
+        if i != j and a[i] == a[j]:
+            break
+    else:
+        print(a[i], end=' ')
