@@ -1,6 +1,9 @@
-a = [int(s) for s in input().split()]
-b = [*set(a)]
-c = []
-for i in range(len(b) - 1):
-    if a.count(b[i]) == 1:
-        print(b[i])
+a, n = [int(input()) for _ in range(2)]
+
+def power(s, t):
+    if t == 0:
+        return 1
+    s = s * power(s, t - 1)
+    return s
+
+print(power(a, n))

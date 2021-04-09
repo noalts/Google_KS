@@ -621,3 +621,87 @@ for i in range(len(a)):
             break
     else:
         print(a[i], end=' ')
+
+#chess place 8 queens
+N = 8
+result = 'NO'
+x = [0] * N
+y = [0] * N
+for i in range(N):
+    x[i], y[i] = [int(j) for j in input().split()]
+for i in range (N):
+    for j in range(i+1,N):
+        if x[i] == x[j] or y[i] == y[j] or abs(x[i] - x[j]) == abs(y[i] - y[j]):
+            result = 'YES'
+print(result)
+
+#bowling pins standing .I:
+N, K = [int(i) for i in input().split()]
+kegels = ['I'] * N
+for j in range(K):
+    l, r = [int(i) for i in input().split()]
+    kegels[l-1:r] = ['.'] * (r-l+1)
+print(''.join([str(i) for i in kegels]))
+
+#function distance(): Pythagoras
+import math
+def distance(x1, y1, x2, y2):
+    d = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    return d
+x1 = float(input())
+y1 = float(input())
+x2 = float(input())
+y2 = float(input())
+
+print(distance(x1, y1, x2, y2))
+
+#function power of n: Quadratzahlen
+r, t = [float(input()) for _ in range(2)]
+def power(a, b):
+    return a ** b
+print(power(r, t))
+
+#uppercase letter, lowercase-
+def uppercase(s):
+    q = []
+    q[:0] = s
+    if ord(q[0]) >= 97:
+        q[0] = chr(ord(q[0]) - 32)
+    s = ''.join(q)
+    return s
+
+a = input().split()
+for i in a:
+    print(uppercase(i),end=' ')
+
+#or
+def capitalize(word):
+    first_letter_small = word[0]
+    first_letter_big = chr(ord(first_letter_small) - ord('a') + ord('A'))
+    return first_letter_big + word[1:]
+
+source = input().split()
+res = []
+for word in source:
+    res.append(capitalize(word))
+print(' '.join(res))
+
+#power of with recursion
+a, n = [float(input()) for _ in range(2)]
+
+def power(s, t):
+    if t == 0:
+        return 1
+    s = s * power(s, t - 1)
+    return s
+
+print(power(a, n))
+
+#or shorter
+def power(a, n):
+    if n == 0:
+        return 1
+    else:
+        return a * power(a, n - 1)
+
+print(power(float(input()), int(input())))
