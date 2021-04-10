@@ -705,3 +705,28 @@ def power(a, n):
         return a * power(a, n - 1)
 
 print(power(float(input()), int(input())))
+
+#reverse order
+def reverse():
+    a = int(input())
+    if a != 0:
+        reverse()
+    print(a)
+
+reverse()
+
+#i tried:
+def rev(e, f):
+    if f == 0:
+        return
+    e[f] = rev(e[::f-1])
+    return e
+    
+a = []
+ele = -1
+while ele != 0:
+    ele = int(input())
+    a.append(ele)
+
+for i in a:
+    print(rev(a[i]))
