@@ -460,6 +460,28 @@ if q in l:
 else:
     print(-1)
 
+#recursion fibunacci:
+a = int(input())
+
+def fib(n):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 1
+    else:
+        return (fib(n-1) + fib(n-2))
+
+print(fib(a))
+
+# or shorter recursion fibunacci:
+def fib(n):
+    if n == 1 or n == 2:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+        
+print(fib(int(input())))
+
 #find max of consecutive equal elements
 prev = -1
 curr_rep_len = 0
@@ -715,18 +737,35 @@ def reverse():
 
 reverse()
 
-#i tried:
-def rev(e, f):
-    if f == 0:
-        return
-    e[f] = rev(e[::f-1])
-    return e
-    
-a = []
-ele = -1
-while ele != 0:
-    ele = int(input())
-    a.append(ele)
+#Collatz function recursion remeber the callstacks!
+def coll(n):
+    if n == 1:
+        return 0
+    elif n % 2 == 0:
+        return 1 + coll(n / 2)        
+    else:        
+        return 1 + coll(n*3 + 1)
+print(coll(int(input())))
 
-for i in a:
-    print(rev(a[i]))
+#recursion fibunacci:
+a = int(input())
+
+def fib(n):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 1
+    else:
+        return (fib(n-1) + fib(n-2))
+
+print(fib(a))
+
+# or shorter:
+def fib(n):
+    if n == 1 or n == 2:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+
+print(fib(int(input())))
+
