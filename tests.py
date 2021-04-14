@@ -1,11 +1,24 @@
-a = int(input())
+n, m = [int(i) for i in input().split()]
 
-def fib(n):
-    if n == 1:
-        return 1
-    elif n == 2:
-        return 1
+a = [[int(j) for j in input().split()] for i in range(n)]
+
+maxi = int()
+
+for i in range(n):
+    for j in range(m):
+        if a[i][j] >= maxi and a[i][j] >= 0:
+            maxi = a[i][j]
+        elif a[i][j] <= 0:
+            maxi = a[i][j]
+            if a[i][j] <= maxi:
+                maxi = a[i][j]
+            
+
+for i in range(n):
+    for j in range(m):
+        if a[i][j] == maxi:
+            print(i, j)
+            break
     else:
-        return (fib(n-1) + fib(n-2))
-
-print(fib(a))
+        continue
+    break
