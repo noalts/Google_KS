@@ -806,3 +806,38 @@ for i in range(n):
     else:
         continue
     break
+
+#print a snowflake with if:
+n = int(input())
+
+for i in range(n):
+    for j in range(n):
+        
+        if i == round((n-1)/2):
+            print('*',sep=' ', end=' ')
+        elif j > round((n-1)/2) and j == n-i-1:
+            print('*',sep=' ', end=' ')    
+
+        elif j == round((n-1)/2):
+            print('*',sep=' ', end=' ')
+        elif i > round((n-1)/2) and j == n-i-1:
+            print('*',sep=' ', end=' ') 
+        
+        elif i == j:
+            print('*',sep=' ', end=' ')
+        
+            
+        else:
+            print(".",sep=' ', end=' ')
+    print()   
+
+#or without if:
+n = int(input())
+a = [['.'] * n for i in range(n)]
+for i in range(n):
+    a[i][i] = '*'
+    a[n // 2][i] = '*'
+    a[i][n // 2] = '*'
+    a[i][n - i - 1] = '*'
+for row in a:
+    print(' '.join(row))

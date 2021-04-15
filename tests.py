@@ -1,24 +1,9 @@
-n, m = [int(i) for i in input().split()]
-
-a = [[int(j) for j in input().split()] for i in range(n)]
-
-maxi = int()
-
+n = int(input())
+a = [['.'] * n for i in range(n)]
 for i in range(n):
-    for j in range(m):
-        if a[i][j] >= maxi and a[i][j] >= 0:
-            maxi = a[i][j]
-        elif a[i][j] <= 0:
-            maxi = a[i][j]
-            if a[i][j] <= maxi:
-                maxi = a[i][j]
-            
-
-for i in range(n):
-    for j in range(m):
-        if a[i][j] == maxi:
-            print(i, j)
-            break
-    else:
-        continue
-    break
+    a[i][i] = '*'
+    a[n // 2][i] = '*'
+    a[i][n // 2] = '*'
+    a[i][n - i - 1] = '*'
+for row in a:
+    print(' '.join(row))
