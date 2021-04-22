@@ -1,15 +1,16 @@
-n = int(input())
-a = [['0'] * n for i in range(n)]
 
-for i in range(n):
-    for j in range(n):
-        if i < j:
-            a[i][j] = str(j-i)
-        elif i == j:
-            a[i][j] = str(0)
-        else:
-            a[i][j] = str(i-j)
+def scale(a, n, m, c):    
+    for i in range(n):
+        for j in range(m):
+            a[i][j] *= c
+    
+
+n, m = [int(i) for i in input().split()]
+a = [[int(j) for j in input().split()] for i in range(n)]
+c = int(input())
+
+scale(a, n, m, c)
 
 for row in a:
-    print(' '.join(row))
+    print(' '.join([str(elem) for elem in row]))
 

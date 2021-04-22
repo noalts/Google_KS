@@ -737,7 +737,7 @@ def reverse():
 
 reverse()
 
-#Collatz function recursion remeber the callstacks!
+#Collatz function recursion remember the callstacks!
 def coll(n):
     if n == 1:
         return 0
@@ -891,3 +891,72 @@ n = int(input())
 a = [[abs(i - j) for j in range(n)] for i in range(n)]
 for row in a:
     print(' '.join([str(i) for i in row]))
+
+#minor diagonal:
+n = int(input())
+a = [['0'] * n for i in range(n)]
+
+for i in range(n):
+    for j in range(n):
+        if j == n-1-i:
+            a[i][j] = str(1)
+        elif j > n-1-i:
+           a[i][j] = str(2)
+
+for row in a:
+    print(' '.join(row))
+
+#or without if:
+n = int(input())
+a = [[0] * n for i in range(n)]
+for i in range(n):
+    a[i][n - i - 1] = 1
+for i in range(n):
+    for j in range(n - i, n):
+        a[i][j] = 2
+for row in a:
+    for elem in row:
+        print(elem, end=' ')
+    print()
+
+#swap columns in array function:
+def swap_columns(a, i, j):    
+    for k in range(len(a)):
+        a[k][i], a[k][j] = a[k][j], a[k][i]
+    
+
+n, m = [int(i) for i in input().split()]
+a = [[int(j) for j in input().split()] for i in range(n)]
+i, j = [int(i) for i in input().split()]
+
+swap_columns(a,i,j)
+
+for row in a:
+    print(' '.join([str(elem) for elem in row]))
+    
+#scale matrix:
+def scale(a, n, m, c):    
+    for i in range(n):
+        for j in range(m):
+            a[i][j] *= c
+    
+
+n, m = [int(i) for i in input().split()]
+a = [[int(j) for j in input().split()] for i in range(n)]
+c = int(input())
+
+scale(a, n, m, c)
+
+for row in a:
+    print(' '.join([str(elem) for elem in row]))
+
+# or without function:
+m, n = [int(k) for k in input().split()]
+A = [[int(k) for k in input().split()] for i in range(m)]
+c = int(input())
+
+for i in range(m):
+    for j in range(n):
+        A[i][j] *= c
+
+print('\n'.join([' '.join([str(k) for k in row]) for row in A]))    
