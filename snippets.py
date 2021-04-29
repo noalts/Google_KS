@@ -991,3 +991,50 @@ for i in range(m):
             C[i][k] += A[i][j] * B[j][k]
 
 print('\n'.join([' '.join([str(k) for k in row]) for row in C]))
+
+#print distinct elements of set:
+a = {int(s) for s in input().split()}
+b = set()
+b.update(a)
+print(*b)
+
+#print number of distinct elements in set:
+a = {str(s) for s in input().split()}
+print(len(a))
+
+#or short:
+print(len(set(input().split())))
+
+#number of unique numbers in 2 sets:
+print(len(set(input().split()).intersection(set(input().split()))))
+
+#or:
+print(len(set(input().split()) & set(input().split())))
+
+#sort list by last char using sorted with key and lambda function:
+words = ['banana', 'pie', 'Washington', 'book']
+sorted(words, key=lambda x: x[::-1])
+
+#determine if number occured before without set:
+a = [int(s) for s in input().split()]
+b = []
+
+for i in range(len(a)):
+    if a[i] in b:
+        print('YES')
+        b.append(a[i])
+    else:
+        print('NO')
+        b.append(a[i])
+
+#or with set
+numbers = [int(s) for s in input().split()]
+occur_before = set()
+for num in numbers:
+    if num in occur_before:
+        print('YES')
+    else:
+        print('NO')
+        occur_before.add(num)
+
+#
