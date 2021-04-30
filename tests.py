@@ -1,10 +1,20 @@
-a = [int(s) for s in input().split()]
-b = []
+n = int(input())
+ans = ''
+t = ''
+a = {int(s) for s in range(1,n+1)}
+b = set()
 
-for i in range(len(a)):
-    if a[i] in b:
-        print('YES')
-        b.append(a[i])
+while ans != 'HELP':
+    q = input().split()
+    ans = input()
+    if ans == 'YES':
+        pass
+    elif ans == 'NO':
+        [a.discard(int(i)) for i in q]
     else:
-        print('NO')
-        b.append(a[i])
+        break
+else:
+    print (*a)
+
+
+
