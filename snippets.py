@@ -1051,3 +1051,31 @@ words = set()
 for _ in range(int(input())):
     words.update(input().split())
 print(len(words))
+
+#languages spoken by one all or many students
+b = set()
+a = set()
+c = set()
+d = set()
+for i in range(int(input())):
+    n = int(input())
+    if i == 0:
+        for j in range(n):
+            a.update(input().split())
+            d.update(a)
+    else:
+        for k in range(n):
+            b.update(input().split())
+            d.update(b)
+        c = a.intersection(b)
+        b = set()
+print(len(c))
+print(*sorted(c), sep = '\n')
+print(len(d))
+print(*sorted(d), sep = '\n')
+
+#or shorter:
+students = [{input() for j in range(int(input()))} for i in range(int(input()))]
+known_by_everyone, known_by_someone = set.intersection(*students), set.union(*students)
+print(len(known_by_everyone), *sorted(known_by_everyone), sep='\n')
+print(len(known_by_someone), *sorted(known_by_someone), sep='\n')
