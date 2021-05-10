@@ -1037,4 +1037,17 @@ for num in numbers:
         print('NO')
         occur_before.add(num)
 
-#
+#distinct words in given text:
+n = int(input())
+b = set()
+for i in range(n):
+    a = input().split(' ')
+    for e in a:
+        b.add(e)
+print(len(b))
+
+#or shorter:
+words = set()
+for _ in range(int(input())):
+    words.update(input().split())
+print(len(words))
