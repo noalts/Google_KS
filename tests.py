@@ -1,20 +1,13 @@
-n = int(input())
-ans = ''
-t = ''
-a = {int(s) for s in range(1,n+1)}
-b = set()
+a = input().split()
+b = dict(zip(a, [0 for i in range(len(a))]))
+c = 0
+for w in a:
+    if w in b:
+        
 
-while ans != 'HELP':
-    q = input().split()
-    ans = input()
-    if ans == 'YES':
-        pass
-    elif ans == 'NO':
-        [a.discard(int(i)) for i in q]
-    else:
-        break
-else:
-    print (*a)
+print(b)
+print(a)
+
 
 
 
