@@ -1,12 +1,13 @@
-a = input().split()
-b = dict(zip(a, [-1 for i in range(len(a))]))
-c = -1
-for w in a:
-    if w in b:
-        b[w] += 1
-        print(b[w], end = ' ')
-
-
-
-
-
+s = dict()
+n = int(input())
+for i in range(n):
+    key, val = input().split()
+    s.update({key: val})
+c = input()
+for key, val in s.items():
+    if c in s:
+        print(s[val])
+        break
+    elif s[val] == c:
+        print(s[key])
+        break
