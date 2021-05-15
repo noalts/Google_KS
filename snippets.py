@@ -1079,3 +1079,19 @@ students = [{input() for j in range(int(input()))} for i in range(int(input()))]
 known_by_everyone, known_by_someone = set.intersection(*students), set.union(*students)
 print(len(known_by_everyone), *sorted(known_by_everyone), sep='\n')
 print(len(known_by_someone), *sorted(known_by_someone), sep='\n')
+
+#Dictionaries
+# Number of occurrences
+a = input().split()
+b = dict(zip(a, [-1 for i in range(len(a))]))
+c = -1
+for w in a:
+    if w in b:
+        b[w] += 1
+        print(b[w], end = ' ')
+
+#or with get()
+counter = {}
+for word in input().split():
+    counter[word] = counter.get(word, 0) + 1
+    print(counter[word] - 1, end=' ')
