@@ -1095,3 +1095,26 @@ counter = {}
 for word in input().split():
     counter[word] = counter.get(word, 0) + 1
     print(counter[word] - 1, end=' ')
+
+#dictionary key and val interchange
+s = dict()
+b = dict()
+n = int(input())
+for i in range(n):
+    key, val = input().split()
+    s.update({key: val})
+    b.update({val: key})
+c = input()
+if c in s:
+    print(s[c])   
+elif c in b:
+    print(b[c])
+
+#faster and shorter:
+n = int(input())
+d = {}
+for i in range(n):
+    first, second = input().split()
+    d[first] = second
+    d[second] = first
+print(d[input()])
