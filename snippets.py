@@ -1118,3 +1118,70 @@ for i in range(n):
     d[first] = second
     d[second] = first
 print(d[input()])
+
+#election:
+n = int(input())
+d = {}
+for i in range(n):
+   key, val = input().split()
+   if key in d:
+       d[key] += int(val)
+   else:
+       d[key] = int(val)
+for key, val in sorted(d.items()):
+   print(key, val)
+
+
+# of better
+num_votes = {}
+for _ in range(int(input())):
+    candidate, votes = input().split()
+    num_votes[candidate] = num_votes.get(candidate, 0) + int(votes)
+
+for candidate, votes in sorted(num_votes.items()):
+    print(candidate, votes)
+
+#most frequent word in dict low alphabet
+s = dict()
+b = dict()
+n = int(input())
+max = 0
+nmax = 0
+a = []
+for i in range(n):
+    words = input().split()
+    for w in words:
+        if w not in s:
+            key, val = w, 1
+            s[key] = val
+            
+        else:
+            key, val = w, s.get(key)
+            s[key] = s.get(key) + 1
+
+
+def filter(dictObj, callback):
+    nd = dict()
+    for (key, val) in dictObj.items():
+        if callback((key, val)):
+            nd[key] = val
+    return nd
+
+r = sorted(s.items(), key=lambda i: (i[1]), reverse=True)
+
+max = list(r)[0][1]
+nd = filter(s, lambda e: int(e[1])>=max)
+
+nd = sorted(nd, key=lambda i: i[0])
+print(nd[0])
+
+# or shorter:
+counter = {}
+for i in range(int(input())):
+    line = input().split()
+    for word in line:
+        counter[word] = counter.get(word, 0) + 1
+        
+max_count = max(counter.values())
+most_frequent = [k for k, v in counter.items() if v == max_count]
+print(min(most_frequent))
