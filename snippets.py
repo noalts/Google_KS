@@ -1263,3 +1263,78 @@ for i in range(int(input())):
         print('OK')
     else:
         print('Access denied')
+
+# list to dict function#
+def ltod(x, dict):
+    val = []
+    for k in x:
+        for j in range(len(k)):
+            if j == 0:
+                key = k[j]
+                dict[key] = key
+            else:
+                val.append(k[j])
+        dict[key] = ''.join(val)
+        val =[]
+    return dict
+
+#cities in countries:
+cuntries = {}
+for i in range(int(input())):
+    cunt, *cit = input().split()
+    cuntries[cunt] = set(cit)
+
+for i in range(int(input())):
+    city = input()
+    for cunt, cit in cuntries.items():
+        if city in cit:
+            print(cunt)
+
+#or a bit shorter:
+motherland = {}
+for i in range(int(input())):
+    country, *cities = input().split()
+    for city in cities:
+        motherland[city] = country
+        
+for i in range(int(input())):
+    print(motherland[input()])
+
+#sorting dict by first then second reversed
+counter = {}
+for i in range(int(input())):
+    line = input().split()
+    for word in line:
+        counter[word] = counter.get(word, 0) + 1
+print(counter)
+
+a = [(val, key) for key, val in counter.items()]
+
+a.sort(key=lambda x: (-x[0], x[1]))
+for i in range(len(a)):
+    print(a[i][1])
+
+#or a bit shorter:
+n = int(input())
+counts = {}
+for _ in range(n):
+    for word in input().split():
+        counts[word] = counts.get(word, 0) + 1
+
+freqs = [(-count, word) for (word, count) in counts.items()]
+
+for c, word in sorted(freqs):
+    print(word)
+
+# or with counter:
+from collections import Counter
+
+words = []
+for _ in range(int(input())):
+    words.extend(input().split())
+
+counter = Counter(words)
+pairs = [(-pair[1], pair[0]) for pair in counter.most_common()]
+words = [pair[1] for pair in sorted(pairs)]
+print('\n'.join(words))
+
