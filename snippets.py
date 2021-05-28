@@ -1132,7 +1132,7 @@ for key, val in sorted(d.items()):
    print(key, val)
 
 
-# of better
+# or better
 num_votes = {}
 for _ in range(int(input())):
     candidate, votes = input().split()
@@ -1338,3 +1338,38 @@ pairs = [(-pair[1], pair[0]) for pair in counter.most_common()]
 words = [pair[1] for pair in sorted(pairs)]
 print('\n'.join(words))
 
+#English - Latin Dictionary:
+englat = {}
+lateng = {}
+badies = [' -',',']
+a = []
+for i in range(int(input())):
+    line = input()
+    for i in badies:
+        line = line.replace(i, '')
+    eng, *lat = line.split()
+    englat[eng] = set(lat)
+    a.append(lat)
+
+for key, val in englat.items():
+    for elem in val:
+        lateng.setdefault(elem,[])
+        lateng[elem].append(key)
+print(len(lateng))
+for key, val in sorted(lateng.items()):   
+    print(key, '- ', end='')
+    print(*val, sep=', ')
+
+#or shorter
+from collections import defaultdict
+
+latin_to_english = defaultdict(list)
+for i in range(int(input())):
+    english_word, latin_translations_chunk = input().split(' - ')
+    latin_translations = latin_translations_chunk.split(', ')
+    for latin_word in latin_translations:
+        latin_to_english[latin_word].append(english_word)
+    
+print(len(latin_to_english))
+for latin_word, english_translations in sorted(latin_to_english.items()):
+    print(latin_word + ' - ' + ', '.join(english_translations))
