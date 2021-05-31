@@ -1,3 +1,34 @@
+# Tries
+
+# Implementing TrieNode class
+class TrieNode:
+    def __init__(self, char):
+        self.char = char
+        self.is_end = False
+        self.children = {}
+
+# initialising empty TrieNode
+class Trie(object):
+    def __init__(self):
+        self.root = TrieNode("")
+
+# perform insertion into Trie
+
+def insert(self, word):
+    node = self.root
+    for char in word:
+        if char in node.children:
+            node = node.children[char]
+        else:
+            new_node = TrieNode(char)
+            node.children[char] = new_node
+            node = new_node
+    node.is_end = True
+
+
+
+# For loops with range
+
 # Print list:
 a = int(input())
 b = int(input())
@@ -64,7 +95,12 @@ for i in range(int(input())):
         num_zeroes += 1
 print(num_zeroes)
 
-# 1! + 2! + ... + n!
+# 1! + 2! + ... + n! sum of factorials
+#-----------------------------------------------------------in
+# 4
+#-----------------------------------------------------------out
+# 33
+
 res = 1
 sum = 0
 n = int(input())
@@ -74,12 +110,19 @@ for i in range(1, n + 1):
 print(sum)
 
 #ladder
+#-----------------------------------------------------------in
+# 3
+#-----------------------------------------------------------out
+# 1
+# 12
+# 123
+
 for i in range(1, int(input()) + 1):
     for j in range(1,i+1):
         print(j,sep='',end='')
     print()
 
-#find missing
+#find missing element
 c = []
 sc = []
 res = []
@@ -111,6 +154,8 @@ for i in range(1,n):
     cardsum += int(input())
 print(sum - cardsum)
 
+# Strings
+
 #string Theory
 s = input()
 print(s[2],s[2],s[1:],s[:4],s[:-2],s[2::2],s[1::2],s[::-1],len(s), sep='\n')
@@ -126,7 +171,7 @@ b = int(--0-- a//2)
 sone = s[:b]
 stwo = s[b:]
 sone, stwo = stwo, sone
-print(sone,stwo,sep='')
+print(sone, stwo, sep='')
 
 #or shorter:
 s = input()
@@ -202,6 +247,8 @@ for i in range(len(s)):
     if i % 3 != 0:
         t += s[i]
 print(t)
+
+#While Loops--------------------------------------------------------------------------------
 
 #SquareList
 n = int(input())
@@ -516,6 +563,8 @@ while n != 0:
         r = t
 print(r)
 
+#Lists-------------------------------------------------------------------------------------------
+
 # print every 2nd index from list:
 a = [int(s) for s in input().split()]
 for i in range(len(a)):
@@ -548,8 +597,7 @@ for i in range(len(a) - 1):
     elif a[i] < 0 and a[i + 1] < 0:
         print(a[i],' ',a[i + 1])
         break
-    else:
-        pass
+
 
 #or
 a = [int(i) for i in input().split()]
@@ -571,9 +619,15 @@ a = [int(i) for i in input().split()]
 c = 0
 m = max(a)
 for i in range(0, len(a)):
-    if i == max:
-        break
-print(m,' ',a.index(m))
+    if i == m:
+        m = i
+print(m, a.index(m))
+
+# or
+a = [int(i) for i in input().split()]
+c = 0
+m = max(a)
+print(m , a.index(m))
 
 #count distinct numbers in list
 a = [int(i) for i in input().split()]
@@ -607,6 +661,11 @@ a[x], a[y] = a[y], a[x]
 print(*a)
 
 #number of equal pairs counted once
+#-------------------------------------------in
+# 1 1 1 1 1	
+#-------------------------------------------out
+# 10
+
 a = [int(s) for s in input().split()]
 counter = 0
 for i in range(len(a)):
@@ -616,6 +675,11 @@ for i in range(len(a)):
 print(counter)
 
 #number of equal pairs all combinations counted
+#-------------------------------------------in
+# 1 1 1 1 1	
+#-------------------------------------------out
+# 10
+
 a = [int(i) for i in input().split()]
 b = set(a)
 c = []
@@ -628,6 +692,11 @@ for i in c:
 print(sum(d))
 
 #print every unique element in order of appearance
+#-------------------------------------------in
+# 4 3 5 2 5 1 3 5
+#-------------------------------------------out
+# 4 2 1
+
 a = [int(s) for s in input().split()]
 b = []
 for i in range(len(a)):
@@ -644,7 +713,20 @@ for i in range(len(a)):
     else:
         print(a[i], end=' ')
 
-#chess place 8 queens
+# Lists
+# chess place 8 queens
+#-------------------------------------------in
+# 1 7
+# 2 4
+# 3 2
+# 4 8
+# 5 6
+# 6 1
+# 7 3
+# 8 5
+#-------------------------------------------out
+# NO
+
 N = 8
 result = 'NO'
 x = [0] * N
@@ -657,7 +739,16 @@ for i in range (N):
             result = 'YES'
 print(result)
 
-#bowling pins standing .I:
+# Lists
+# bowling pins standing .I:
+#-------------------------------------------in
+# 10 3
+# 8 10
+# 2 5
+# 3 6
+#-------------------------------------------out
+# I.....I...
+
 N, K = [int(i) for i in input().split()]
 kegels = ['I'] * N
 for j in range(K):
@@ -666,6 +757,14 @@ for j in range(K):
 print(''.join([str(i) for i in kegels]))
 
 #function distance(): Pythagoras
+#-------------------------------------------in
+# 0
+# 0
+# 1
+# 0
+#-------------------------------------------out
+# 1
+
 import math
 def distance(x1, y1, x2, y2):
     d = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
@@ -683,7 +782,13 @@ def power(a, b):
     return a ** b
 print(power(r, t))
 
-#uppercase letter, lowercase-
+# Functions and recursion-------------------------------------------------------------------------------------------------------
+# uppercase letter, lowercase-
+#-------------------------------------------in
+# harry potter
+#-------------------------------------------out
+# Harry Potter
+
 def uppercase(s):
     q = []
     q[:0] = s
@@ -708,7 +813,14 @@ for word in source:
     res.append(capitalize(word))
 print(' '.join(res))
 
-#power of with recursion
+# Functions and recursion
+# power of with recursion, exponentiation: a power of n
+#-------------------------------------------in
+# 2
+# 4
+#-------------------------------------------out
+# 16
+
 a, n = [float(input()) for _ in range(2)]
 
 def power(s, t):
@@ -729,6 +841,17 @@ def power(a, n):
 print(power(float(input()), int(input())))
 
 #reverse order
+# -------------------------------------------in
+# 1
+# 2
+# 3
+# 0
+# -------------------------------------------out
+# 0
+# 3
+# 2
+# 1
+
 def reverse():
     a = int(input())
     if a != 0:
@@ -738,6 +861,12 @@ def reverse():
 reverse()
 
 #Collatz function recursion remember the callstacks!
+# count steps to reach 1
+#-------------------------------------------in
+# 27
+# #-------------------------------------------out
+# 111
+
 def coll(n):
     if n == 1:
         return 0
@@ -745,9 +874,16 @@ def coll(n):
         return 1 + coll(n / 2)        
     else:        
         return 1 + coll(n*3 + 1)
+
 print(coll(int(input())))
 
-#recursion fibunacci:
+# Functions and recursions:
+#recursion fibunacci:	
+#-------------------------------------------in
+# 6
+#-------------------------------------------out
+# 8
+
 a = int(input())
 
 def fib(n):
@@ -769,7 +905,16 @@ def fib(n):
 
 print(fib(int(input())))
 
-#find max of array of lists or list in list short
+# array
+#find index of max of array of lists or list in list short
+#-------------------------------------------in
+# 3 4
+# 0 3 2 4
+# 2 3 5 5
+# 5 1 2 3
+#-------------------------------------------out
+# 1 2
+
 n, m = [int(i) for i in input().split()]
 a = [[int(j) for j in input().split()] for i in range(n)]
 best_i, best_j = 0, 0
@@ -807,7 +952,17 @@ for i in range(n):
         continue
     break
 
-#print a snowflake with if:
+# array
+# print a snowflake with if:
+#-------------------------------------------in
+# 5
+#-------------------------------------------out
+# * . * . *
+# . * * * .
+# * * * * *
+# . * * * .
+# * . * . *
+
 n = int(input())
 
 for i in range(n):
@@ -831,7 +986,7 @@ for i in range(n):
             print(".",sep=' ', end=' ')
     print()   
 
-#or without if:
+# or without if:
 n = int(input())
 a = [['.'] * n for i in range(n)]
 for i in range(n):
@@ -842,7 +997,15 @@ for i in range(n):
 for row in a:
     print(' '.join(row))
 
-#print chessboard:
+# array
+# print chessboard:
+#-------------------------------------------in
+# 3 4
+#-------------------------------------------out
+# . * . *
+# * . * .
+# . * . *
+
 n, m = [int(i) for i in input().split()]
 a = [['.'] * m for i in range(n)]
 
@@ -870,7 +1033,17 @@ for i in range(n):
 for row in a:
     print(' '.join(row))
 
-#parallel diagonals readable:
+# array
+# parallel diagonals readable:
+#-------------------------------------------in
+# 5
+#-------------------------------------------out
+# 0 1 2 3 4
+# 1 0 1 2 3
+# 2 1 0 1 2
+# 3 2 1 0 1
+# 4 3 2 1 0
+
 n = int(input())
 a = [['0'] * n for i in range(n)]
 
@@ -892,7 +1065,16 @@ a = [[abs(i - j) for j in range(n)] for i in range(n)]
 for row in a:
     print(' '.join([str(i) for i in row]))
 
+# array
 #minor diagonal:
+#-------------------------------------------in
+# 4	
+# -------------------------------------------out
+# 0 0 0 1
+# 0 0 1 2
+# 0 1 2 2
+# 1 2 2 2
+
 n = int(input())
 a = [['0'] * n for i in range(n)]
 
@@ -919,7 +1101,19 @@ for row in a:
         print(elem, end=' ')
     print()
 
-#swap columns in array function:
+# array
+# swap columns in array function:
+#-------------------------------------------in
+# 3 4
+# 11 12 13 14
+# 21 22 23 24
+# 31 32 33 34
+# 0 1
+#-------------------------------------------out
+# 12 11 13 14
+# 22 21 23 24
+# 32 31 33 34
+
 def swap_columns(a, i, j):    
     for k in range(len(a)):
         a[k][i], a[k][j] = a[k][j], a[k][i]
@@ -933,8 +1127,19 @@ swap_columns(a,i,j)
 
 for row in a:
     print(' '.join([str(elem) for elem in row]))
-    
+
+# array   
 #scale matrix:
+#-------------------------------------------in
+# 3 4
+# 11 12 13 14
+# 21 22 23 24
+# 31 32 33 34
+# 2	
+#-------------------------------------------out
+# 22 24 26 28
+# 42 44 46 48
+# 62 64 66 68
 def scale(a, n, m, c):    
     for i in range(n):
         for j in range(m):
@@ -961,7 +1166,22 @@ for i in range(m):
 
 print('\n'.join([' '.join([str(k) for k in row]) for row in A]))
 
-#multiply different arrays with oneonother
+# array
+# multiply different arrays with oneonother
+#-------------------------------------------in
+# 3 4 2
+# 0 1 2 3
+# 4 5 6 7
+# 8 9 10 11
+# 2 3
+# 0 4
+# 5 -1
+# 1 1
+#-------------------------------------------out
+# 13 5
+# 45 33
+# 77 61
+
 def multi(a, b, d):
         
     for i in range(len(a)):
@@ -992,13 +1212,21 @@ for i in range(m):
 
 print('\n'.join([' '.join([str(k) for k in row]) for row in C]))
 
+#set
+
+#print number of distinct elements in set:
+#-----------------------------------------in
+# 1 2 3 2 1
+#-----------------------------------------out
+# 3
+
 #print distinct elements of set:
 a = {int(s) for s in input().split()}
 b = set()
 b.update(a)
 print(*b)
 
-#print number of distinct elements in set:
+#or
 a = {str(s) for s in input().split()}
 print(len(a))
 
@@ -1006,6 +1234,13 @@ print(len(a))
 print(len(set(input().split())))
 
 #number of unique numbers in 2 sets:
+
+#-----------------------------------------in
+# 1 3 2
+# 4 3 2
+#-----------------------------------------out
+# 2 3
+
 print(len(set(input().split()).intersection(set(input().split()))))
 
 #or:
@@ -1016,6 +1251,16 @@ words = ['banana', 'pie', 'Washington', 'book']
 sorted(words, key=lambda x: x[::-1])
 
 #determine if number occured before without set:
+#-----------------------------------------in
+# 1 2 3 2 3 4
+#-----------------------------------------out
+# NO
+# NO
+# NO
+# YES
+# YES
+# NO
+
 a = [int(s) for s in input().split()]
 b = []
 
@@ -1036,8 +1281,17 @@ for num in numbers:
     else:
         print('NO')
         occur_before.add(num)
+# set
+# distinct words in given text:
+#-----------------------------------------in
+# 4
+# She sells sea shells on the sea shore;
+# The shells that she sells are sea shells I'm sure.
+# So if she sells sea shells on the sea shore,
+# I'm sure that the shells are sea shore shells.
+#-----------------------------------------out
+# 19
 
-#distinct words in given text:
 n = int(input())
 b = set()
 for i in range(n):
@@ -1052,7 +1306,27 @@ for _ in range(int(input())):
     words.update(input().split())
 print(len(words))
 
+#set
 #languages spoken by one all or many students
+#-----------------------------------------in
+# 3
+# 3
+# Russian
+# English
+# Japanese
+# 2
+# Russian
+# English
+# 1
+# English	
+#-----------------------------------------out
+# 1
+# English
+# 3
+# English
+# Japanese
+# Russian
+
 b = set()
 a = set()
 c = set()
@@ -1080,8 +1354,13 @@ known_by_everyone, known_by_someone = set.intersection(*students), set.union(*st
 print(len(known_by_everyone), *sorted(known_by_everyone), sep='\n')
 print(len(known_by_someone), *sorted(known_by_someone), sep='\n')
 
-#Dictionaries
+# Dictionaries
 # Number of occurrences
+# ---------------------------------------------in
+# one two one tho three
+# ---------------------------------------------out
+# 0 0 1 0 0
+ 
 a = input().split()
 b = dict(zip(a, [-1 for i in range(len(a))]))
 c = -1
@@ -1097,6 +1376,15 @@ for word in input().split():
     print(counter[word] - 1, end=' ')
 
 #dictionary key and val interchange
+# ---------------------------------------------in
+# 3
+# Hello Hi
+# Bye Goodbye
+# List Array
+# Goodbye
+# ---------------------------------------------out
+# Bye
+
 s = dict()
 b = dict()
 n = int(input())
@@ -1119,7 +1407,19 @@ for i in range(n):
     d[second] = first
 print(d[input()])
 
-#election:
+# Dictionaries
+# election:
+# ---------------------------------------------in
+# 5
+# McCain 10
+# McCain 5
+# Obama 9
+# Obama 8
+# McCain 1	
+# ---------------------------------------------out
+# McCain 16
+# Obama 17
+
 n = int(input())
 d = {}
 for i in range(n):
@@ -1131,7 +1431,6 @@ for i in range(n):
 for key, val in sorted(d.items()):
    print(key, val)
 
-
 # or better
 num_votes = {}
 for _ in range(int(input())):
@@ -1141,7 +1440,14 @@ for _ in range(int(input())):
 for candidate, votes in sorted(num_votes.items()):
     print(candidate, votes)
 
+# Dictionaries
 #most frequent word in dict low alphabet
+# ---------------------------------------------in
+# 1
+# apple orange banana banana orange
+# ---------------------------------------------out
+# banana
+
 s = dict()
 b = dict()
 n = int(input())
@@ -1186,7 +1492,27 @@ max_count = max(counter.values())
 most_frequent = [k for k, v in counter.items() if v == max_count]
 print(min(most_frequent))
 
+# Dictionaries
 # Permissions
+# ---------------------------------------------in
+# 4
+# helloworld.exe R X
+# pinglog W R
+# nya R
+# goodluck X W R
+# 5
+# read nya
+# write helloworld.exe
+# execute nya
+# read pinglog
+# write pinglog
+# ---------------------------------------------out
+# OK
+# Access denied
+# Access denied
+# OK
+# OK
+
 s = dict()
 b = dict()
 n = int(input())
@@ -1264,10 +1590,11 @@ for i in range(int(input())):
     else:
         print('Access denied')
 
-# list to dict function#
-def ltod(x, dict):
+# list to dict function
+def ltod(list):
+    mydict = {}
     val = []
-    for k in x:
+    for k in list:
         for j in range(len(k)):
             if j == 0:
                 key = k[j]
@@ -1276,9 +1603,23 @@ def ltod(x, dict):
                 val.append(k[j])
         dict[key] = ''.join(val)
         val =[]
-    return dict
+    return mydict
 
-#cities in countries:
+# Dictionaries
+# cities in countries:
+# ---------------------------------------------in
+# 2
+# USA Boston Pittsburgh Washington Seattle
+# UK London Edinburgh Cardiff Belfast
+# 3
+# Cardiff
+# Seattle
+# London
+# ---------------------------------------------out
+# UK
+# USA
+# UK
+
 cuntries = {}
 for i in range(int(input())):
     cunt, *cit = input().split()
@@ -1300,7 +1641,34 @@ for i in range(int(input())):
 for i in range(int(input())):
     print(motherland[input()])
 
+# Dictionaries
 #sorting dict by first then second reversed
+
+# ---------------------------------------------in
+# 9
+# hi
+# hi
+# what is your name
+# my name is bond
+# james bond
+# my name is damme
+# van damme
+# claude van damme
+# jean claude van damme
+# ---------------------------------------------out
+# damme
+# is
+# name
+# van
+# bond
+# claude
+# hi
+# my
+# james
+# jean
+# what
+# your
+
 counter = {}
 for i in range(int(input())):
     line = input().split()
@@ -1338,7 +1706,23 @@ pairs = [(-pair[1], pair[0]) for pair in counter.most_common()]
 words = [pair[1] for pair in sorted(pairs)]
 print('\n'.join(words))
 
+# Dictionaries
 #English - Latin Dictionary:
+# ---------------------------------------------in
+# 3
+# apple - malum, pomum, popula
+# fruit - baca, bacca, popum
+# punishment - malum, multa
+# ---------------------------------------------out
+# 7
+# baca - fruit
+# bacca - fruit
+# malum - apple, punishment
+# multa - punishment
+# pomum - apple
+# popula - apple
+# popum - fruit
+
 englat = {}
 lateng = {}
 badies = [' -',',']
@@ -1362,6 +1746,7 @@ for key, val in sorted(lateng.items()):
 
 #or shorter
 from collections import defaultdict
+from builtins import len
 
 latin_to_english = defaultdict(list)
 for i in range(int(input())):

@@ -1,17 +1,6 @@
-OPERATION_PERMISSION = {
-    'read': 'R',
-    'write': 'W',
-    'execute': 'X',
-}
-
-file_permissions = {}
-for i in range(int(input())):
-    file, *permissions = input().split()
-    file_permissions[file] = set(permissions)
-
-for i in range(int(input())):
-    operation, file = input().split()
-    if OPERATION_PERMISSION[operation] in file_permissions[file]:
-        print('OK')
-    else:
-        print('Access denied')
+s = input()
+t = ''
+for i in range(len(s)):
+    if i % 3 != 0:
+        t += s[i]
+print(t)

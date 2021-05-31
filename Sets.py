@@ -1,9 +1,3 @@
-#print distinct elements of set:
-a = {int(s) for s in input().split()}
-b = set()
-b.update(a)
-print(*b)
-
 #print number of distinct elements in set:
 
 #-----------------------------------------in
@@ -13,6 +7,12 @@ print(*b)
 
 a = {str(s) for s in input().split()}
 print(len(a))
+
+#print distinct elements of set:
+a = {int(s) for s in input().split()}
+b = set()
+b.update(a)
+print(*b)
 
 #or short:
 print(len(set(input().split())))
