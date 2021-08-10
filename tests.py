@@ -1,20 +1,9 @@
-englat = {}
-lateng = {}
-badies = [' -',',']
-a = []
-for i in range(int(input())):
-    line = input()
-    for i in badies:
-        line = line.replace(i, '')
-    eng, *lat = line.split()
-    englat[eng] = set(lat)
-    a.append(lat)
+def twoSum(nums, target):
+        for i in nums:
+            if target - i in nums and nums.index(i) > nums.index(target-i):
+                print([nums.index(i),nums.index(target-i)])
+                break
+            else:
+                i +=1
 
-for key, val in englat.items():
-    for elem in val:
-        lateng.setdefault(elem,[])
-        lateng[elem].append(key)
-print(len(lateng))
-for key, val in sorted(lateng.items()):   
-    print(key, '- ', end='')
-    print(*val, sep=', ')
+twoSum([3,3],6)

@@ -16,6 +16,8 @@ class Trie(object):
 
 def insert(self, word):
     node = self.root
+    lenword = len(word)
+
     for char in word:
         if char in node.children:
             node = node.children[char]
@@ -34,8 +36,8 @@ def dfs(self, node, pre):
            self.dfs(child, pre + node.char)
 
 def search(self, x):
-        
         node = self.root
+
         for char in x:
             if char in node.children:
                 node = node.children[char]
@@ -44,6 +46,9 @@ def search(self, x):
         self.output = [] 
         self.dfs(node, x[:-1])
         return self.output
+
+
+
 #-----------------------------------------------------------------------------------------------------------------------
 # For loops with range
 
@@ -1217,7 +1222,7 @@ multi(a, b, d)
 for row in d:
     print(' '.join([str(elem) for elem in row]))
 
-#or without function:
+#or without function: input 2 ints one line
 m, n, r = [int(k) for k in input().split()]
 A = [[int(k) for k in input().split()] for i in range(m)]
 B = [[int(k) for k in input().split()] for j in range(n)]

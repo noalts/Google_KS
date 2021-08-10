@@ -79,19 +79,20 @@ class Trie(object):
             if char in node.children:
                 node = node.children[char]
             else:
-                # cannot found the prefix, return empty list
+                # cannot find the prefix, return empty list
                 return []
         
         # Traverse the trie to get all candidates
         self.dfs(node, x[:-1])
 
         # Sort the results in reverse order and return
-        return sorted(self.output, key=lambda x: x[1], reverse=True)
+        print(sorted(self.output, key=lambda x: x[1], reverse=True))
 
 t = Trie()
 t.insert("word")
 t.insert("was")
 t.insert("war")
 t.insert("what")
+t.insert("what")
 t.insert("where")
-t.query("wh")
+t.query("w")
