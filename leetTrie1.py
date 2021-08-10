@@ -21,3 +21,4 @@ class Solution:
             node = node.right
         
         return res
+preorderTraversal()
